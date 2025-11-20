@@ -16,7 +16,7 @@ cargo add duckity
 
 ## Usage
 
-> [!INFO]
+> [!NOTE]
 > You need a Duckity application to follow this guide. If you don't have one yet, head over to
 > duckity.dev and make one first.
 
