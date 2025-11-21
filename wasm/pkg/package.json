@@ -1,0 +1,32 @@
+{
+  "name": "@duckity/wasm",
+  "version": "1.0.0",
+  "description": "A web WASM SDK for Duckity.",
+  "keywords": [
+    "duckity"
+  ],
+  "homepage": "https://github.com/duckity-dev/sdks#readme",
+  "bugs": {
+    "url": "https://github.com/duckity-dev/sdks/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duckity-dev/sdks.git"
+  },
+  "license": "MIT",
+  "author": "Nyeki",
+  "type": "module",
+  "main": "duckity.js",
+  "types": "duckity.d.ts",
+  "files": [
+    "duckity_bg.wasm",
+    "duckity.js",
+    "duckity.d.ts"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}

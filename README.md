@@ -7,6 +7,13 @@ Welcome to the Duckity SDKs repository! Here we keep all SDKs, each under their 
 To check a SDK's documentation, visit the `README.md` file located under their platform folder. For
 example, the Rust SDK's documentation is at `rust/README.md`.
 
+## All SDKs
+
+The current SDKs are:
+
+1. Rust
+2. WASM
+
 ## Contributing
 
 Contributions of any kind are welcome! Suggestions, issues, PRs, and everything else goes into our
