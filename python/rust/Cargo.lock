@@ -96,7 +96,7 @@ dependencies = [
 
 [[package]]
 name = "duckity_rs"
-version = "0.1.1"
+version = "0.1.3"
 dependencies = [
  "duckity",
  "pyo3",

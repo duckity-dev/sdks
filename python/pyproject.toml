@@ -14,6 +14,7 @@ dynamic = ["version"]
 dependencies = [
     "httpx>=0.28.1",
 ]
+readme = "README.md"
 
 [tool.maturin]
 module-name = "duckity.duckity_rs"
