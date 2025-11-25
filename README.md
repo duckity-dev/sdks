@@ -13,6 +13,7 @@ The current SDKs are:
 
 1. Rust
 2. WASM
+3. Python 3
 
 ## Contributing
 
