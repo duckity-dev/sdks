@@ -20,6 +20,7 @@ const CHALLENGE_SIZE: usize = 397;
 ///
 /// To get a challenge, use [`DuckityClient::get_challenge()`]. To solve it, use
 /// [`Challenge::solve()`]. Use [`Solution::encode()`] to get the encoded solution string.
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct DuckityClient {
     /// The domain the client is pointing to.
     domain: String,
