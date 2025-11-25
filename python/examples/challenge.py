@@ -23,8 +23,8 @@ print()
 if not DUCKITY_APP_ID or not DUCKITY_PROFILE_CODE or not DUCKITY_DOMAIN:
     print(
         "Seems like it's your first time here! Open python/examples/challenge.py and update the "
-        "DUCKITY_APP_ID, DUCKITY_APP_SECRET, and DUCKITY_PROFILE_CODE constants at the top of the "
-        "file. This'll work once that's done!"
+        "DUCKITY_APP_ID and DUCKITY_PROFILE_CODE constants at the top of the file. This'll work "
+        "once that's done!"
     )
     exit(1)
 
