@@ -194,7 +194,7 @@ impl Challenge {
     /// Returns:
     /// * [`Ok<Challenge>`] - The decoded challenge.
     /// * [`Err<DuckityError>`] - An error if the challenge was invalid.
-    fn decode(data: &[u8]) -> Result<Self, DuckityError> {
+    pub fn decode(data: &[u8]) -> Result<Self, DuckityError> {
         if data.len() != CHALLENGE_SIZE {
             return Err(DuckityError::DecodingFailed(
                 "The challenge size in bytes was not the expected byte size.",
