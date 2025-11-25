@@ -36,7 +36,9 @@
         }
         requestAnimationFrame(animate);
 
-        // WASM logic
+        // Works with the Live Server VSCode extension by Ritwick Dey. Update this import if you're
+        // hosting the library and this HTML file somewhere different. Note that CDNs like jsDelivr
+        // don't work because of the worker code needing to be same-origin.
         import DuckityClient from "http://127.0.0.1:5500/wasm/js/dist/duckity.js";
 
         let client = new DuckityClient("quack.duckity.dev");
