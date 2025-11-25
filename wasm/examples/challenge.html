@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Duckity WASM Challenge Example</title>
+    <style>
+        #dot {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: orange;
+            border-radius: 50%;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div id="dot"></div>
+
+    <script type="module">
+        // Animation setup
+        const dot = document.getElementById("dot");
+        let position = 0;
+        let direction = 1;
+
+        function animate() {
+            position += direction * 2; // pixels per frame
+            if (position > window.innerWidth - 30 || position < 0) {
+                direction *= -1;
+            }
+            dot.style.left = position + "px";
+            requestAnimationFrame(animate);
+        }
+        requestAnimationFrame(animate);
+
+        // WASM logic
+        import DuckityClient from "http://127.0.0.1:5500/wasm/js/dist/duckity.js";
+
+        let client = new DuckityClient("quack.duckity.dev");
+        let solution = await client.solve("9d9893d9-a888-4bee-a806-c8c9090f5d1d", "default");
+        console.log("Solved! The token is:", solution);
+    </script>
+</body>
+</html>

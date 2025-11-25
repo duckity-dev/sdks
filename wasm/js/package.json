@@ -1,11 +1,11 @@
 {
   "name": "@duckity/wasm",
-  "version": "1.0.0",
+  "version": "1.1.11",
   "description": "A web WASM SDK for Duckity.",
   "keywords": [
     "duckity"
   ],
-  "homepage": "https://github.com/duckity-dev/sdks#readme",
+  "homepage": "https://github.com/duckity-dev/sdks/blob/main/wasm/README.md",
   "bugs": {
     "url": "https://github.com/duckity-dev/sdks/issues"
   },
@@ -13,15 +13,19 @@
     "type": "git",
     "url": "git+https://github.com/duckity-dev/sdks.git"
   },
+  "readme": "../README.md",
   "license": "MIT",
   "author": "Nyeki",
   "type": "module",
-  "main": "duckity.js",
-  "types": "duckity.d.ts",
+  "main": "dist/duckity.js",
+  "types": "dist/duckity.d.ts",
   "files": [
-    "duckity_bg.wasm",
-    "duckity.js",
-    "duckity.d.ts"
+    "dist/duckity.js",
+    "dist/duckity.d.ts",
+    "dist/worker.js",
+    "dist/worker.d.ts",
+    "dist/wasm/duckity.js",
+    "dist/wasm/duckity_bg.wasm"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
