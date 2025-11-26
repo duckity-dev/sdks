@@ -263,10 +263,10 @@ impl Challenge {
         let x = self.x();
         let p = self.p();
         let t = self.t();
+        let e = (&p + (BigUint::ZERO + 1u8)) >> 2; // (p+1)/4
 
         let mut y = x;
         for _ in 0..t {
-            let e = (&p + (BigUint::ZERO + 1u8)) >> 2; // (p+1)/4
             y = y.modpow(&e, &p);
         }
 
