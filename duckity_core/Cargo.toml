@@ -1,0 +1,18 @@
+[package]
+name = "duckity_core"
+version = "0.1.0"
+edition = "2024"
+authors = ["Nyeki <me@nyeki.dev>"]
+readme = "README.md"
+
+[dependencies]
+base64 = { version = "0.22.1", default-features = false, features = ["alloc"] }
+num-bigint-dig = { version = "0.9.1", default-features = false, features = [
+    "prime",
+] }
+serde = { version = "1.0.228", default-features = false, features = ["derive"] }
+serde_json = { version = "1.0.149", default-features = false, features = [
+    "alloc",
+] }
+sha2 = { version = "0.11.0", default-features = false }
+thiserror = { version = "2.0.18", default-features = false }
