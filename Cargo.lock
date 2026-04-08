@@ -101,7 +101,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "duckity_core"
+name = "duckity-core"
 version = "0.1.0"
 dependencies = [
  "base64",
@@ -117,7 +117,7 @@ name = "duckity_wasm"
 version = "0.1.0"
 dependencies = [
  "console_error_panic_hook",
- "duckity_core",
+ "duckity-core",
  "wasm-bindgen",
  "wasm-bindgen-test",
 ]
