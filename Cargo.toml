@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "duckity_core",
+    "duckity_wasm",
+]
+resolver = "3"
