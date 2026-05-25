@@ -18,3 +18,7 @@ fn main() {
     println!("{solution_token}");
 }
 ```
+
+This crate is made using `num-bigint` instead of `rug` for portability without depending on Linux
+and other big packages. To use a rug-based, potentially-faster implementation of this package in
+Linux environments where GMP is available, use the `duckity` crate instead.

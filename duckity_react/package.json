@@ -1,0 +1,17 @@
+{
+  "name": "@duckity/react",
+  "module": "src/index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/react": "^19.2.15"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@duckity/wasm": "^1.1.12",
+    "comlink": "^4.4.2",
+    "react": "^19.2.6"
+  }
+}
