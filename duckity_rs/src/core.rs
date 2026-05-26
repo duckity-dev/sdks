@@ -1,3 +1,5 @@
+//! Low-level implementation of challenge decoding, solving, and encoding.
+
 use base64::Engine;
 use base64::prelude::BASE64_URL_SAFE_NO_PAD;
 use rug::integer::Order;
@@ -23,6 +25,7 @@ pub struct Solution {
     pub pi: Vec<u8>,
 }
 
+/// An error occurred while decoding a challenge string.
 #[derive(Debug, Error)]
 pub enum DuckityDecodeError {
     #[error("The challenge string passed to decode() did not have enough parts.")]
@@ -37,6 +40,7 @@ pub enum DuckityDecodeError {
     NotAChallenge(#[from] serde_json::Error),
 }
 
+/// An error occurred while encoding a challenge solution into a string.
 #[derive(Debug, Error)]
 pub enum DuckityEncodeError {
     #[error("The challenge's solution could not be encoded into JSON.")]

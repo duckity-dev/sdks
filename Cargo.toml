@@ -1,6 +1,3 @@
 [workspace]
-members = [
-    "duckity_core", "duckity_rs",
-    "duckity_wasm",
-]
+members = ["duckity_core", "duckity_rs", "duckity_wasm"]
 resolver = "3"
