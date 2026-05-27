@@ -1,3 +1,75 @@
+//! A no-std implementation of Duckity challenge solving.
+//!
+//! The no-std implementation may be slower than the std implementation, therefore if you can use
+//! std in your environment, use [duckity-rs](https://docs.rs/duckity) instead of duckity-core.
+//!
+//! This crate only contains primitives to decode, solve, and encode challenges. You'll have to
+//! implement the HTTP API part yourself.
+//!
+//! # Installation
+//!
+//! To install this package, run the following cargo command:
+//!
+//! ```sh
+//! $ cargo add duckity-core
+//! ```
+//!
+//! # Usage
+//!
+//! To begin with, fetch a challenge from the duckling API. You do so with a request that looks
+//! like follows:
+//!
+//! ```http
+//! GET /v1/challenge HTTP/1.1
+//! Host: quack.duckity.dev
+//! Content-Type: application/json
+//!
+//! {
+//!   "application_id": "your-application-id",
+//!   "protection_profile_id": "your-protection-profile-id",
+//!   "keys": {
+//!     "your_cctc_key": "value"
+//!   }
+//! }
+//! ```
+//!
+//! If successful, you'll get a response that looks like follows:
+//!
+//! ```http
+//! HTTP/1.1 200 OK
+//! Content-Type: application/json
+//!
+//! {
+//!   "challenge": "challenge-string-here"
+//! }
+//! ```
+//!
+//! > *Note: Read the Duckity documentation as this is not strictly kept up-to-date.*
+//!
+//! Once you have the challenge string, you have to decode it, solve it, and encode the solution.
+//!
+//! ```
+//! let challenge: String;
+//!
+//! let challenge_decoded = duckity_core::decode(&challenge)?;
+//! let solution = duckity_core::solve(&challenge_decoded)?; // Slow and CPU-intensive!
+//! let solution_encoded = duckity_core::encode(&challenge, &solution)?;
+//! ```
+//!
+//! Your `solution_encoded` variable is the token you'll send back to your backend server.
+//!
+//! # Compiling
+//!
+//! Make sure to compile in release mode when testing challenge solving. Given solving challenges
+//! is completely CPU-bound, you will see massive differences between solving in debug and release
+//! mode.
+//!
+//! # Contributing
+//!
+//! Contributions of any kind are welcome! Suggestions, issues, PRs, and everything else goes into
+//! our [SDKs repository in GitHub](https://github.com/duckity-dev/sdks). We reward good
+//! contributions with Duckity Pro tiers 😉
+
 #![no_std]
 #![warn(clippy::alloc_instead_of_core)]
 #![warn(clippy::std_instead_of_alloc)]

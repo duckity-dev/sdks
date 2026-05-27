@@ -58,7 +58,7 @@
 //!
 //! Contributions of any kind are welcome! Suggestions, issues, PRs, and everything else goes into
 //! our [SDKs repository in GitHub](https://github.com/duckity-dev/sdks). We reward good
-//! contributions with Duckity pro 😉
+//! contributions with Duckity Pro tiers 😉
 
 use std::collections::HashMap;
 use std::pin::Pin;
@@ -66,7 +66,7 @@ use std::pin::Pin;
 pub use crate::error::DuckityError;
 use crate::schemas::{ChallengeRequest, ChallengeResponse};
 
-mod core;
+pub mod core;
 mod error;
 mod schemas;
 

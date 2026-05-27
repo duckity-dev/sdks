@@ -13,8 +13,3 @@ duckity-core = { version = "0.1.0", path = "../duckity_core" }
 
 [dev-dependencies]
 wasm-bindgen-test = "0.3.34"
-
-[profile.release]
-opt-level = 3
-lto = true
-codegen-units = 1
