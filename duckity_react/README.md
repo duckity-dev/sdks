@@ -25,7 +25,6 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [username, setUsername] = useState("");
   const duckity = useChallenge(
-    process.env.NEXT_PUBLIC_DUCKITY_APPLICATION_ID,
     process.env.NEXT_PUBLIC_DUCKITY_PROTECTION_PROFILE_ID,
   );
 
@@ -92,7 +91,6 @@ import { action } from "@/lib/api";
 
 function App() {
   const duckity = useChallenge(
-    process.env.NEXT_PUBLIC_DUCKITY_APPLICATION_ID,
     process.env.NEXT_PUBLIC_DUCKITY_PROTECTION_PROFILE_ID,
   );
 

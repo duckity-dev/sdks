@@ -84,21 +84,19 @@ mod schemas;
 ///     .await?;
 ///
 /// // Challenge from a self-hosted duckling.
-/// let challenge = duckity::get(application_id, protection_profile_id)
+/// let challenge = duckity::get(protection_profile_id)
 ///     .base_url("https://quack.example.com")
 ///     .await?;
 /// ```
 ///
 /// Arguments:
-/// * `application_id` - The application's ID.
 /// * `protection_profile_id` - The protection profile's ID.
 ///
 /// Returns:
 /// [`ChallengeGetter`] - An awaitable builder to get a challenge.
-pub fn get(application_id: String, protection_profile_id: String) -> ChallengeGetter {
+pub fn get(protection_profile_id: String) -> ChallengeGetter {
     ChallengeGetter {
         base_url: "https://quack.duckity.dev".into(),
-        application_id,
         protection_profile_id,
         keys: HashMap::new(),
     }
@@ -107,7 +105,6 @@ pub fn get(application_id: String, protection_profile_id: String) -> ChallengeGe
 /// Challenge-getting builder. Initialize with [`get`].
 pub struct ChallengeGetter {
     base_url: String,
-    application_id: String,
     protection_profile_id: String,
     keys: HashMap<String, String>,
 }
@@ -155,8 +152,7 @@ impl ChallengeGetter {
         };
 
         let request = client.post(url).json(&ChallengeRequest {
-            application_id: self.application_id,
-            protection_profile_id: self.protection_profile_id,
+            id: self.protection_profile_id,
             keys: self.keys,
         });
 

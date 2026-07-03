@@ -104,13 +104,11 @@ interface Waiter {
 /**
  * Hook to handle fetching and solving a challenge for a given application and protection profile.
  *
- * @param applicationId The ID of the application to get the challenge for.
  * @param protectionProfileId The ID of the protection profile to use to get a challenge.
  * @returns An object containing the solve function, current status, solution, and boolean flags
  *   for loading, error, and idle states.
  */
 export function useChallenge(
-  applicationId: string,
   protectionProfileId: string,
 ): UseChallengeResult {
   const [solution, setSolution] = useState<string | null>(null);
@@ -125,8 +123,7 @@ export function useChallenge(
         "https://quack.duckity.dev/v1/challenge",
         {
           body: JSON.stringify({
-            application_id: applicationId,
-            protection_profile_id: protectionProfileId,
+            id: protectionProfileId,
             keys: options?.keys,
           }),
         },

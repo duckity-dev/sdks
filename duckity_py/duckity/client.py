@@ -13,7 +13,6 @@ class Client:
 
     async def get_challenge(
         self,
-        application_id: str,
         protection_profile_id: str,
         *,
         keys: dict[str, str] = {},
@@ -21,7 +20,6 @@ class Client:
         """Fetches a challenge from the Duckling API.
 
         Args:
-            application_id (str): The application ID for which to fetch the challenge.
             protection_profile_id (str): The protection profile ID for which to fetch the challenge.
             keys (dict[str, str], optional): A map of CCTC keys to values. Defaults to no KV pairs.
 
@@ -32,8 +30,7 @@ class Client:
         response = await _client.post(
             f"{self.base_url}/v1/challenge",
             json={
-                "application_id": application_id,
-                "protection_profile_id": protection_profile_id,
+                "id": protection_profile_id,
                 "keys": keys,
             },
         )
