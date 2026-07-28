@@ -1,0 +1,43 @@
+{
+  "name": "@duckity/js",
+  "type": "module",
+  "version": "0.1.6",
+  "module": "src/index.ts",
+  "types": "dist/index.d.ts",
+  "collaborators": [
+    "Rafael Bradley <rafabradleyrb@gmail.com>"
+  ],
+  "files": [
+    "src",
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "clean:all": "rm -rf dist",
+    "clean:types": "rm -rf dist/types",
+    "bundle": "rollup --config rollup.config.ts --configPlugin typescript",
+    "prepublishOnly": "bun run clean:all && bun run bundle && bun run clean:types"
+  },
+  "dependencies": {
+    "@duckity/wasm": "1.1.16"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^29.0.3",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-terser": "^1.0.0",
+    "@rollup/plugin-typescript": "^12.3.0",
+    "@rollup/plugin-wasm": "^6.2.2",
+    "@types/bun": "latest",
+    "rollup": "^4.62.3",
+    "rollup-plugin-dts": "^6.4.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}

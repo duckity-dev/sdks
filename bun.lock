@@ -1,0 +1,17 @@
+{
+  "lockfileVersion": 1,
+  "configVersion": 1,
+  "workspaces": {
+    "": {
+      "dependencies": {
+        "@duckity/wasm": "^1.1.12",
+        "comlink": "^4.4.2",
+      },
+    },
+  },
+  "packages": {
+    "@duckity/wasm": ["@duckity/wasm@1.1.12", "", {}, "sha512-ai0upX8mHgRGnHLNU1rrFA6M+QiaTA2GmvxvT3KCRL/cq1+dNjH7ti8sqeq3vaMBrNnR5RHOrhDIwV0IKlVEZA=="],
+
+    "comlink": ["comlink@4.4.2", "", {}, "sha512-OxGdvBmJuNKSCMO4NTl1L47VRp6xn2wG4F/2hYzB6tiCb709otOxtEYCSvK80PtjODfXXZu8ds+Nw5kVCjqd2g=="],
+  }
+}
