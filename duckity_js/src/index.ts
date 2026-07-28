@@ -13,7 +13,7 @@ export interface GetDuckityChallengeOptions {
   /**
    * The base URL to the API endpoint. Defaults to `https://quack.duckity.com` if not provided.
    *
-   * Update this when self-hosting a Duckling. No trailing slash must be included in the URL.
+   * Only update this when self-hosting a Duckling.
    */
   api?: string;
 }
@@ -40,6 +40,11 @@ export async function solve(
   protectionProfileId: string,
   options?: GetDuckityChallengeOptions,
 ): Promise<string> {
+  if (options?.api && options.api.endsWith("/")) {
+    // Remove the trailing slash from the API URL if provided
+    options.api = options.api.slice(0, -1);
+  }
+
   let response: ChallengeResponse = await post(
     `${options?.api || "https://quack.duckity.com"}/v1/challenge`,
     {
