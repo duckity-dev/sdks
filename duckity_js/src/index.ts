@@ -16,6 +16,19 @@ export interface GetDuckityChallengeOptions {
    * Only update this when self-hosting a Duckling.
    */
   api?: string;
+
+  // /**
+  //  * When this is `false`, the client will assume it is allowed to get a challenge the first time
+  //  * one is requested. This may not always be true (when the client has an active penalty or used
+  //  * all of their allowed requests in another session), case in which the client may be penalized.
+  //  *
+  //  * When this is `true`, an extra request will be made to the Duckling API to synchronize the
+  //  * client's state with the server's state. This extra request will not issue a challenge, rather
+  //  * only synchronize the client's state with the server's state. If the client is penalized or has
+  //  * to wait before being allowed to get a challenge, the client will be informed of this. It'll
+  //  * avoid getting it unnecessarily penalized at the cost of an extra request.
+  //  */
+  // sync?: boolean;
 }
 
 /**
@@ -46,10 +59,9 @@ export async function solve(
   }
 
   let response: ChallengeResponse = await post(
-    `${options?.api || "https://quack.duckity.com"}/v1/challenge`,
+    `${options?.api || "https://quack.duckity.com"}/v1/challenges/${protectionProfileId}/issue`,
     {
       body: {
-        id: protectionProfileId,
         keys: options?.keys || {},
       },
     },
@@ -60,4 +72,4 @@ export async function solve(
   return solution;
 }
 
-export default { solve }
+export default { solve };

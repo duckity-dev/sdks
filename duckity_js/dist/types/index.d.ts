@@ -1,7 +1,7 @@
 /**
  * Options for getting a Duckity challenge from the API.
  */
-interface GetDuckityChallengeOptions {
+export interface GetDuckityChallengeOptions {
     /**
      * The custom-context threat correlation keys to be sent with the request.
      */
@@ -23,10 +23,8 @@ interface GetDuckityChallengeOptions {
  * @param options Optional parameters for the challenge issuance.
  * @returns The solution to the challenge issued by Duckity.
  */
-declare function solve(protectionProfileId: string, options?: GetDuckityChallengeOptions): Promise<string>;
+export declare function solve(protectionProfileId: string, options?: GetDuckityChallengeOptions): Promise<string>;
 declare const _default: {
     solve: typeof solve;
 };
-
-export { _default as default, solve };
-export type { GetDuckityChallengeOptions };
+export default _default;

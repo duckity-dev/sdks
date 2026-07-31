@@ -61,14 +61,17 @@ export function get<T>(url: string, options?: RequestInit): Promise<T> {
  * @param options Extra options to pass to the Fetch API, such as headers and body.
  * @returns The parsed JSON response from the server if the request is successful.
  */
-export function post<T>(url: string, options?: Omit<RequestInit, "body"> & { body: any }): Promise<T> {
+export function post<T>(
+  url: string,
+  options?: Omit<RequestInit, "body" | "method"> & { body: any },
+): Promise<T> {
   return request(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       ...options?.headers,
     },
-    body: options?.body ? JSON.stringify(options.body) : undefined,
     ...options,
+    body: options?.body ? JSON.stringify(options.body) : undefined,
   });
 }
